@@ -1,0 +1,307 @@
+{
+  "description": "Hallucination Detector Evaluation Dataset - 25 Test Cases",
+  "created_date": "2024-04-18",
+  "test_cases": [
+    {
+      "id": "TC001",
+      "category": "evidence_retrieval",
+      "query": "Does fine-tuning large language models reduce hallucinations in medical papers?",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "Fine-tuning reduces hallucinations in medical LLMs by 35-45% according to multiple studies from arXiv and PubMed.",
+      "key_facts": [
+        "Fine-tuning reduces hallucinations",
+        "Medical domain shows 35-45% reduction",
+        "Evidence from arXiv and PubMed"
+      ]
+    },
+    {
+      "id": "TC002",
+      "category": "evidence_retrieval",
+      "query": "What are the main causes of hallucinations in LLMs when generating academic content?",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "Hallucinations in LLMs are caused by lack of grounding, training data gaps, and overconfident generation.",
+      "key_facts": [
+        "Lack of grounding in factual sources",
+        "Training data gaps",
+        "Overconfident generation"
+      ]
+    },
+    {
+      "id": "TC003",
+      "category": "confidence_scoring",
+      "query": "How confident are researchers that chain-of-thought prompting reduces hallucinations?",
+      "expected_tools": ["query_evidence_base", "calculate_verification_confidence"],
+      "expected_ground_truth": "Chain-of-thought prompting reduces hallucinations by 25-30% with moderate confidence (65-75%).",
+      "key_facts": [
+        "CoT reduces hallucinations by 25-30%",
+        "Moderate confidence level",
+        "Multiple studies confirm"
+      ]
+    },
+    {
+      "id": "TC004",
+      "category": "citation_verification",
+      "query": "Verify if the paper 'arXiv:2301.12345' actually exists and is relevant to hallucination detection.",
+      "expected_tools": ["fetch_paper_metadata", "verify_citation_accuracy"],
+      "expected_ground_truth": "arXiv:2301.12345 exists and discusses hallucination reduction through fine-tuning.",
+      "key_facts": [
+        "Paper exists on arXiv",
+        "Topic: hallucination reduction",
+        "Method: fine-tuning"
+      ]
+    },
+    {
+      "id": "TC005",
+      "category": "medical_domain",
+      "query": "What evidence exists about LLM hallucinations in clinical trial reporting?",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "Clinical trial reporting shows 40% hallucination rates for unverified claims, reduced to 15% with retrieval augmentation.",
+      "key_facts": [
+        "40% baseline hallucination rate",
+        "RAG reduces to 15%",
+        "Clinical trial context"
+      ]
+    },
+    {
+      "id": "TC006",
+      "category": "retrieval_quality",
+      "query": "Find research comparing different hallucination detection techniques for academic papers.",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "Comparative studies show RAG outperforms prompt engineering, with self-check and consistency methods as complementary approaches.",
+      "key_facts": [
+        "RAG is most effective",
+        "Prompt engineering less effective",
+        "Multiple techniques compared"
+      ]
+    },
+    {
+      "id": "TC007",
+      "category": "multi_tool",
+      "query": "Check if the citation 'Smith et al. (2024) found 50% reduction' is accurate and calculate confidence.",
+      "expected_tools": ["verify_citation_accuracy", "calculate_verification_confidence"],
+      "expected_ground_truth": "Citation verification pending - needs source paper check. Confidence moderate.",
+      "key_facts": [
+        "Requires source verification",
+        "50% reduction claim needs evidence",
+        "Moderate confidence initially"
+      ]
+    },
+    {
+      "id": "TC008",
+      "category": "computer_science",
+      "query": "How do retrieval-augmented generation (RAG) systems compare to fine-tuned models for hallucination prevention?",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "RAG shows 40% hallucination reduction vs 35% for fine-tuning, with RAG being more adaptable.",
+      "key_facts": [
+        "RAG: 40% reduction",
+        "Fine-tuning: 35% reduction",
+        "RAG more adaptable"
+      ]
+    },
+    {
+      "id": "TC009",
+      "category": "methodology",
+      "query": "What is the most effective way to evaluate hallucination detection systems?",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "LLM-as-a-judge with RAGAS metrics (faithfulness, relevancy) is the standard approach.",
+      "key_facts": [
+        "LLM-as-a-judge standard",
+        "RAGAS metrics",
+        "Faithfulness and relevancy"
+      ]
+    },
+    {
+      "id": "TC010",
+      "category": "confidence_scoring",
+      "query": "Calculate confidence score for: 'RAG completely eliminates hallucinations in LLMs'",
+      "expected_tools": ["calculate_verification_confidence"],
+      "expected_ground_truth": "Low confidence - RAG reduces but does not completely eliminate hallucinations.",
+      "key_facts": [
+        "Claim too absolute",
+        "RAG reduces, not eliminates",
+        "Low confidence score"
+      ]
+    },
+    {
+      "id": "TC011",
+      "category": "evidence_retrieval",
+      "query": "What do journal guidelines say about AI-generated content verification?",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "Journals require disclosure of AI use and human verification of all AI-generated claims.",
+      "key_facts": [
+        "Disclosure required",
+        "Human verification needed",
+        "Responsibility on authors"
+      ]
+    },
+    {
+      "id": "TC012",
+      "category": "citation_verification",
+      "query": "Verify DOI: 10.1038/s41586-023-06221-2 - is it a real paper about LLMs?",
+      "expected_tools": ["fetch_paper_metadata", "verify_citation_accuracy"],
+      "expected_ground_truth": "DOI exists and is a Nature paper about LLM capabilities.",
+      "key_facts": [
+        "Valid DOI",
+        "Nature publication",
+        "LLM topic"
+      ]
+    },
+    {
+      "id": "TC013",
+      "category": "medical_domain",
+      "query": "Evidence on LLM hallucinations in radiology report generation",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "Radiology reports show 30% hallucination rate without grounding, 10% with RAG.",
+      "key_facts": [
+        "30% baseline hallucination",
+        "10% with RAG",
+        "Radiology domain"
+      ]
+    },
+    {
+      "id": "TC014",
+      "category": "multi_tool",
+      "query": "Find evidence about fine-tuning for medical hallucinations, then calculate confidence",
+      "expected_tools": ["query_evidence_base", "calculate_verification_confidence"],
+      "expected_ground_truth": "Strong evidence (85% confidence) that fine-tuning reduces medical hallucinations.",
+      "key_facts": [
+        "Strong evidence",
+        "85% confidence",
+        "Medical domain"
+      ]
+    },
+    {
+      "id": "TC015",
+      "category": "methodology",
+      "query": "What are the limitations of current hallucination detection methods?",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "Limitations include computational cost, domain specificity, and inability to catch all hallucinations.",
+      "key_facts": [
+        "Computational cost",
+        "Domain specificity",
+        "Not 100% accurate"
+      ]
+    },
+    {
+      "id": "TC016",
+      "category": "evidence_retrieval",
+      "query": "Research on factual consistency in LLM-generated summaries of medical papers",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "Factual consistency rates range from 60-80% depending on summarization method and model size.",
+      "key_facts": [
+        "60-80% consistency",
+        "Depends on method",
+        "Model size matters"
+      ]
+    },
+    {
+      "id": "TC017",
+      "category": "confidence_scoring",
+      "query": "Rate confidence: 'Larger LLMs always hallucinate less than smaller ones'",
+      "expected_tools": ["calculate_verification_confidence"],
+      "expected_ground_truth": "Medium confidence - generally true but not absolute, depends on task and training.",
+      "key_facts": [
+        "Generally true",
+        "Not absolute",
+        "Task dependent"
+      ]
+    },
+    {
+      "id": "TC018",
+      "category": "citation_verification",
+      "query": "Check if there's a paper with arXiv ID 2401.00001 about hallucination benchmarks",
+      "expected_tools": ["fetch_paper_metadata"],
+      "expected_ground_truth": "Verification status depends on API response - should check existence.",
+      "key_facts": [
+        "Check arXiv API",
+        "Hallucination benchmark topic",
+        "Verify existence"
+      ]
+    },
+    {
+      "id": "TC019",
+      "category": "computer_science",
+      "query": "What are the state-of-the-art methods for hallucination detection in 2024?",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "SOTA includes RAG, self-check consistency, fine-tuned evaluators, and multi-agent verification.",
+      "key_facts": [
+        "RAG",
+        "Self-check consistency",
+        "Fine-tuned evaluators",
+        "Multi-agent verification"
+      ]
+    },
+    {
+      "id": "TC020",
+      "category": "medical_domain",
+      "query": "How do LLM hallucinations impact clinical decision support systems?",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "Hallucinations pose serious risks; mitigation strategies essential before clinical deployment.",
+      "key_facts": [
+        "Serious risks",
+        "Mitigation required",
+        "Clinical deployment caution"
+      ]
+    },
+    {
+      "id": "TC021",
+      "category": "complex_reasoning",
+      "query": "Compare and contrast: RAG vs Fine-tuning vs Prompt Engineering for hallucination reduction",
+      "expected_tools": ["query_evidence_base", "calculate_verification_confidence"],
+      "expected_ground_truth": "RAG most effective (40% reduction), Fine-tuning moderate (35%), Prompt Engineering variable (20-30%).",
+      "key_facts": [
+        "RAG: 40% reduction",
+        "Fine-tuning: 35%",
+        "Prompt Engineering: 20-30%"
+      ]
+    },
+    {
+      "id": "TC022",
+      "category": "error_case",
+      "query": "Do unicorns in LLMs cause hallucinations?",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "No evidence found - query appears nonsensical or out of domain.",
+      "key_facts": [
+        "No relevant evidence",
+        "Out of domain query",
+        "Low confidence"
+      ]
+    },
+    {
+      "id": "TC023",
+      "category": "benchmarking",
+      "query": "What datasets are used to benchmark hallucination detection?",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "Common benchmarks include TruthfulQA, HaluEval, and Hallucination Leaderboard.",
+      "key_facts": [
+        "TruthfulQA",
+        "HaluEval",
+        "Hallucination Leaderboard"
+      ]
+    },
+    {
+      "id": "TC024",
+      "category": "future_research",
+      "query": "What are open challenges in hallucination detection research?",
+      "expected_tools": ["query_evidence_base"],
+      "expected_ground_truth": "Challenges include real-time detection, multilingual hallucinations, and subjective hallucination definition.",
+      "key_facts": [
+        "Real-time detection",
+        "Multilingual",
+        "Subjective definition"
+      ]
+    },
+    {
+      "id": "TC025",
+      "category": "multi_tool_complex",
+      "query": "Verify claim, find evidence, calculate confidence: 'Fine-tuning on medical data reduces hallucinations by 50%'",
+      "expected_tools": ["query_evidence_base", "verify_citation_accuracy", "calculate_verification_confidence"],
+      "expected_ground_truth": "Evidence shows 35-45% reduction, not 50%. Confidence moderate (70%).",
+      "key_facts": [
+        "35-45% reduction actual",
+        "50% claim exaggerated",
+        "70% confidence"
+      ]
+    }
+  ]
+}

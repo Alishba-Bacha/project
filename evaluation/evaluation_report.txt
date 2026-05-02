@@ -1,0 +1,42 @@
+LAB 7: Evaluation Report - Hallucination Detector
+===============================================================
+
+Date: 2026-04-27 11:35:28
+Total Test Cases: 11
+
+OVERALL METRICS
+---------------
+Faithfulness:        0.000
+Answer Relevancy:    0.000
+Tool Call F1:        0.000
+Average Latency:     0.00s
+
+CATEGORY BREAKDOWN
+------------------
+evidence_retrieval: Faith=0.000, ToolF1=0.000 (n=1)
+arxiv_filter: Faith=0.000, ToolF1=0.000 (n=1)
+citation_verification: Faith=0.000, ToolF1=0.000 (n=1)
+confidence_scoring: Faith=0.000, ToolF1=0.000 (n=1)
+medical_domain: Faith=0.000, ToolF1=0.000 (n=1)
+multi_tool: Faith=0.000, ToolF1=0.000 (n=1)
+citation_check: Faith=0.000, ToolF1=0.000 (n=1)
+comparison: Faith=0.000, ToolF1=0.000 (n=1)
+retrieval_quality: Faith=0.000, ToolF1=0.000 (n=1)
+complex_reasoning: Faith=0.000, ToolF1=0.000 (n=1)
+real_document_query: Faith=0.000, ToolF1=0.000 (n=1)
+
+DETAILED RESULTS
+----------------
+TC001: Faith=0.000, Rel=0.000, Tool=0.000, Lat=0.01s
+TC002: Faith=0.000, Rel=0.000, Tool=0.000, Lat=0.00s
+TC003: Faith=0.000, Rel=0.000, Tool=0.000, Lat=0.00s
+TC004: Faith=0.000, Rel=0.000, Tool=0.000, Lat=0.00s
+TC005: Faith=0.000, Rel=0.000, Tool=0.000, Lat=0.00s
+TC006: Faith=0.000, Rel=0.000, Tool=0.000, Lat=0.00s
+TC007: Faith=0.000, Rel=0.000, Tool=0.000, Lat=0.00s
+TC008: Faith=0.000, Rel=0.000, Tool=0.000, Lat=0.00s
+TC009: Faith=0.000, Rel=0.000, Tool=0.000, Lat=0.00s
+TC010: Faith=0.000, Rel=0.000, Tool=0.000, Lat=0.00s
+TC011: Faith=0.000, Rel=0.000, Tool=0.000, Lat=0.00s
+
+===============================================================

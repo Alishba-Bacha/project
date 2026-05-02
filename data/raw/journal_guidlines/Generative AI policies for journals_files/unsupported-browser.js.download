@@ -1,0 +1,35 @@
+// `supportsFlexGap` from: https://www.ishadeed.com/article/flexbox-gap
+document.addEventListener('DOMContentLoaded', function () {
+    function supportsFlexGap() {
+        const flex = document.createElement('div');
+
+        flex.style.display = 'flex';
+        flex.style.flexDirection = 'column';
+        flex.style.rowGap = '1px';
+
+        flex.appendChild(document.createElement('div'));
+        flex.appendChild(document.createElement('div'));
+
+        document.body.appendChild(flex);
+
+        const isSupported = flex.scrollHeight === 1;
+
+        if (flex.parentNode) {
+            flex.parentNode.removeChild(flex);
+        }
+
+        return isSupported;
+    }
+
+    if (
+        !(
+            'CSS' in window &&
+            CSS.hasOwnProperty('supports') &&
+            CSS.supports('block-size', '1px') &&
+            CSS.supports('selector(:where(*))') &&
+            supportsFlexGap()
+        )
+    ) {
+        document.body.classList.add('is-unsupported-browser');
+    }
+});

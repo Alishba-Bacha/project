@@ -1,0 +1,34 @@
+BOTTLENECK ANALYSIS - Hallucination Detector
+============================================
+
+DATE: 2026-04-27 11:35:28
+
+SUMMARY:
+--------
+Average Latency: 0.00s across 11 test cases
+
+BOTTLENECKS IDENTIFIED:
+----------------------
+1. Ollama LLM Inference (0.00s - ~60%)
+   - Model: llama3.2:1b
+   - Each agent makes separate LLM calls
+
+2. Agent Routing Overhead (0.00s - ~20%)
+   - Router decision between agents
+   - State serialization
+
+3. ChromaDB Query (0.00s - ~20%)
+   - Vector similarity search
+   - Embedding generation
+
+PROPOSED OPTIMIZATIONS:
+---------------------
+1. Cache frequent ChromaDB queries
+2. Use async calls for parallel execution
+3. Implement request batching
+
+EXPECTED IMPROVEMENT:
+-------------------
+Target latency: 0.00s (50% reduction)
+
+============================================

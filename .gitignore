@@ -1,0 +1,32 @@
+cd "D:\8th Semester\Capstone Lab\project"
+
+# Create .gitignore
+@"
+# Environment files with secrets
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+venv/
+env/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Project specific
+*.log
+chroma_db/
+"@ | Out-File -FilePath .gitignore -Encoding UTF8

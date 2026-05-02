@@ -1,0 +1,29 @@
+LangSmith Observability - Hallucination Detector
+================================================
+
+Project: hallucination-detector-lab7
+
+Access Traces:
+- URL: https://smith.langchain.com/projects/hallucination-detector-lab7
+
+Your Multi-Agent Architecture:
+-----------------------------
+1. Claim Agent: Handles evidence retrieval and confidence scoring
+2. Citation Agent: Handles citation verification
+3. Router: Routes between agents based on query content
+
+ChromaDB Status:
+---------------
+- Location: D:\8th Semester\Capstone Lab\project\chroma_db
+- Total documents: Check with collection.count()
+
+To Enable Full Tracing:
+-----------------------
+1. Set env vars:
+   export LANGCHAIN_API_KEY=your_key
+   export LANGCHAIN_TRACING_V2=true
+   export LANGCHAIN_PROJECT=hallucination-detector-lab7
+
+2. Run evaluation again with tracing enabled
+
+================================================

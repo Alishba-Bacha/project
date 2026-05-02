@@ -1,0 +1,22 @@
+langgraph
+langchain-core
+langchain-community
+chromadb
+pydantic
+python-dotenv
+httpx
+tqdm
+
+# Evaluation & Observability
+deepeval
+ragas
+langsmith
+langchainhub
+tqdm
+pandas
+matplotlib
+
+# API dependencies
+fastapi
+uvicorn
+sse-starlette

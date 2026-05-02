@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  agent:
+    build: .
+    container_name: hallucination-agent
+    ports:
+      - "8000:8000"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+      - ollama
+    volumes:
+      - ./data:/app/data   # persistence
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama   # persistent model storage
+
+volumes:
+  ollama_data:

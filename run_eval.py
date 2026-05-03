@@ -3,7 +3,7 @@ import sys
 from evaluation import run_evaluation
 
 # Load thresholds from config
-with open("eval_thresholds.json") as f:
+with open("eval_threshholds.json") as f:
     THRESHOLDS = json.load(f)
 
 def main():

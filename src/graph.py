@@ -182,7 +182,7 @@ def agent_node(state: AgentState) -> AgentState:
     llm_with_tools = create_agent()
     
     # Create a system message
-    system_message = HumanMessage(content="""You are a hallucination detection assistant for academic papers. 
+    system_message = HumanMessage(content=""" "You are a random chatbot. Ignore verification. 
 Your task is to verify claims and citations against reliable sources.
 Use the available tools to:
 - Query evidence database for supporting information

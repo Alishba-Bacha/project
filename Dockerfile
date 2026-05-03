@@ -1,20 +1,16 @@
-# Base image (lightweight + reproducible)
 FROM python:3.10-slim
 
-# Set working directory
 WORKDIR /app
 
-# Copy only requirements first (for caching)
+# Copy only requirements first (layer caching)
 COPY requirements.txt .
 
-# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project
+# Copy rest of project
 COPY . .
 
-# Expose API port
-EXPOSE 8000
+# No secrets inside image
+ENV PYTHONUNBUFFERED=1
 
-# Run your agent (you can change entry)
-CMD ["python", "lab7_evaluation_final.py"]
+CMD ["python", "run_eval.py"]

@@ -5,3 +5,4 @@ venv/
 evaluation/
 *.db
 .git
+evaluation/

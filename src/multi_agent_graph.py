@@ -21,19 +21,19 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # ======================================================
-# ✅ MOCK LLM (FOR CI)
+# ✅  LLM (FOR CI)
 # ======================================================
 
 class MockLLM:
     def invoke(self, messages):
         last = messages[-1].content.lower()
 
-        # Simulate reasoning + tool usage
         if "evidence" in last or "research" in last:
             return AIMessage(
                 content="Research shows hallucinations can be reduced using RAG and fine-tuning.",
                 tool_calls=[
                     {
+                        "id": "call_1",
                         "name": "query_evidence_base",
                         "args": {"query": last}
                     }
@@ -45,6 +45,7 @@ class MockLLM:
                 content="The citation appears valid based on metadata.",
                 tool_calls=[
                     {
+                        "id": "call_2",
                         "name": "verify_citation_accuracy",
                         "args": {"query": last}
                     }
@@ -53,9 +54,10 @@ class MockLLM:
 
         if "confidence" in last:
             return AIMessage(
-                content="Confidence is moderate (~0.7) based on available evidence.",
+                content="Confidence is moderate (~0.7) based on evidence.",
                 tool_calls=[
                     {
+                        "id": "call_3",
                         "name": "calculate_verification_confidence",
                         "args": {"query": last}
                     }
@@ -77,7 +79,7 @@ class MockLLM:
 def get_llm():
     # 🔥 FORCE MOCK IN CI
     if os.getenv("CI") == "true":
-        logger.info("🧪 CI detected → using MockLLM")
+        logger.info("🧪 CI detected → using LLM")
         return MockLLM()
 
     try:

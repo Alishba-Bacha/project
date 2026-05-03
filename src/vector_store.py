@@ -12,8 +12,13 @@ client = chromadb.PersistentClient(
 
 collection = client.get_or_create_collection(name="hallucination_detector")
 
-# Load JSON data
-with open("D:\8th Semester\Capstone Lab\project\data\processed\embedded_chunks.json") as f:
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parents[1]
+
+file_path = BASE_DIR / "data" / "processed" / "embedded_chunks.json"
+
+with open(file_path, "r", encoding="utf-8") as f:
     data = json.load(f)
 
 # Prepare data lists

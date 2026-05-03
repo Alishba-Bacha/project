@@ -1,6 +1,6 @@
 import json
 import sys
-from lab7_evaluation_final import run_evaluation
+from evaluation import run_evaluation
 
 # Load thresholds from config
 with open("eval_thresholds.json") as f:

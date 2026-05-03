@@ -13,7 +13,7 @@ client = chromadb.PersistentClient(
 collection = client.get_or_create_collection(name="hallucination_detector")
 
 # Load JSON data
-with open("data/processed/embedded_chunks.json") as f:
+with open("D:\8th Semester\Capstone Lab\project\data\processed\embedded_chunks.json") as f:
     data = json.load(f)
 
 # Prepare data lists

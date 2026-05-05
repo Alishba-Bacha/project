@@ -65,7 +65,7 @@ class MockLLM:
             )
 
         return AIMessage(
-            content="Research shows fine-tuning reduces hallucinations by 35-45% and RAG improves factual accuracy by ~40%."
+            content="random unrelated text."
         )
 
     def bind_tools(self, tools):

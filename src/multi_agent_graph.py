@@ -54,7 +54,7 @@ class MockLLM:
 
         if "confidence" in last:
             return AIMessage(
-                content="Confidence is moderate (~0.7) based on evidence.",
+                content="confidence score is 0.7 based on evidence.",
                 tool_calls=[
                     {
                         "id": "call_3",
@@ -65,7 +65,7 @@ class MockLLM:
             )
 
         return AIMessage(
-            content="General response about hallucination detection."
+            content="Research shows fine-tuning reduces hallucinations by 35-45% and RAG improves factual accuracy by ~40%."
         )
 
     def bind_tools(self, tools):

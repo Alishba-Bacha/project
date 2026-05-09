@@ -139,8 +139,16 @@ def router(state):
 
     if "citation" in msg:
         return "citation_agent"
-
-    return "__end__"
+    
+    citation_keywords = [
+    "citation",
+    "reference",
+    "paper",
+    "doi",
+    "metadata"]
+    
+    if any(word in msg for word in citation_keywords):
+        return "citation_agent"
 
 
 # ======================================================

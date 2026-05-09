@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2026-05-10 20:10:00",
+    "user_input": "What does research say about hallucinations?",
+    "agent_response": "Research shows RAG reduces hallucinations.",
+    "feedback": "good"
+  },
+  {
+    "timestamp": "2026-05-10 20:11:00",
+    "user_input": "Verify citation XYZ",
+    "agent_response": "Unable to verify citation.",
+    "feedback": "bad"
+  }
+]

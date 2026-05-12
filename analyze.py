@@ -1,41 +1,49 @@
 import json
 from collections import Counter
+from pathlib import Path
 
-LOG_FILE = "feedback_log.json"
-
+FEEDBACK_FILE = Path("feedback_log.json")
 
 def analyze_feedback():
-    with open(LOG_FILE, "r") as f:
-        data = json.load(f)
 
-    total = len(data)
+    if not FEEDBACK_FILE.exists():
+        print("❌ feedback_log.json not found")
+        return
 
-    negative = [
-        item for item in data
-        if item["feedback"].lower() == "bad"
+    with open(FEEDBACK_FILE, "r", encoding="utf-8") as f:
+        logs = json.load(f)
+
+    total_responses = len(logs)
+
+    negative_feedback = [
+        log for log in logs
+        if log["feedback"].lower() == "bad"
     ]
 
-    negative_count = len(negative)
+    negative_count = len(negative_feedback)
 
     failed_queries = [
-        item["user_input"]
-        for item in negative
+        log["user_input"]
+        for log in negative_feedback
     ]
 
     top_failed = Counter(failed_queries).most_common(3)
 
-    print("=" * 50)
-    print("FEEDBACK ANALYSIS")
-    print("=" * 50)
+    print("\n==============================")
+    print("📊 FEEDBACK ANALYSIS REPORT")
+    print("==============================")
 
-    print(f"Total Responses: {total}")
+    print(f"\nTotal Responses: {total_responses}")
+
     print(f"Negative Feedback Count: {negative_count}")
 
     print("\nTop 3 Failed Queries:")
 
-    for query, count in top_failed:
-        print(f"- {query} ({count} times)")
-
+    if top_failed:
+        for idx, (query, count) in enumerate(top_failed, 1):
+            print(f"{idx}. {query} ({count} times)")
+    else:
+        print("No failed queries found.")
 
 if __name__ == "__main__":
     analyze_feedback()

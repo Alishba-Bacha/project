@@ -1,10 +1,9 @@
 """
-run_lab7_with_your_db.py
-Lab 7 Evaluation - Uses YOUR ChromaDB dataset with YOUR multi-agent graph
 """
 
 import sys
 import os
+import json
 from pathlib import Path
 
 # Add src directory to Python path
@@ -52,6 +51,42 @@ def check_chromadb():
     except Exception as e:
         print(f"❌ Error accessing ChromaDB: {e}")
         return None
+
+# ============================================
+# FEEDBACK LOGGER
+# ============================================
+
+FEEDBACK_FILE = project_root / "feedback_log.json"
+
+def log_feedback(user_input, agent_response, feedback):
+    """
+    Store user interaction + feedback in JSON file
+    """
+
+    log_entry = {
+        "user_input": user_input,
+        "agent_response": agent_response,
+        "feedback": feedback
+    }
+
+    logs = []
+
+    # Load existing logs
+    if FEEDBACK_FILE.exists():
+        try:
+            with open(FEEDBACK_FILE, "r", encoding="utf-8") as f:
+                logs = json.load(f)
+        except:
+            logs = []
+
+    # Append new entry
+    logs.append(log_entry)
+
+    # Save updated logs
+    with open(FEEDBACK_FILE, "w", encoding="utf-8") as f:
+        json.dump(logs, f, indent=4)
+
+    print(f"✅ Feedback logged: {feedback}")
 
 # ============================================
 # 2. CREATE TEST DATASET BASED ON YOUR CHROMADB
@@ -372,6 +407,28 @@ def run_evaluation():
         print(f"  ✓ Tool F1: {tool_metrics['f1']:.3f}")
         print(f"  ✓ Tools Used: {result['tool_calls_made'] if result['tool_calls_made'] else 'None'}")
         print(f"  ✓ Latency: {result['latency']:.2f}s")
+        
+        # ============================================
+        # FEEDBACK COLLECTION
+        # ============================================
+
+        print("\nFeedback Options:")
+        print("1. Good")
+        print("2. Bad")
+
+        choice = input("Enter feedback (1/2): ").strip()
+
+        if choice == "1":
+            feedback = "Good"
+        else:
+            feedback = "Bad"
+
+        # Store feedback
+        log_feedback(
+            user_input=test_case["query"],
+            agent_response=result["response"],
+            feedback=feedback
+        )
     
     return results
 
@@ -391,7 +448,7 @@ def generate_reports(results: List[Dict]):
     avg_latency = sum(r["latency"] for r in results) / len(results)
     
     # Evaluation Report
-    eval_report = f"""LAB 7: Evaluation Report - Hallucination Detector
+    eval_report = f"""LAB : Evaluation Report - Hallucination Detector
 ===============================================================
 
 Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
